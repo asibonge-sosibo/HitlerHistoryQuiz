@@ -1,6 +1,7 @@
 package vcmsa.asibonge.hitlerhistoryquiz
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -54,9 +55,9 @@ class ActivityQuiz4 : AppCompatActivity() {
                         if (isCorrect) {
                             feedbackText.text = "Correct!"
                             Toast.makeText(this, "Correct answer!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, ActivityQuiz5::class.java)
+                            startActivity(intent)
                         } else {
-                            feedbackText.text = "Incorrect! Hitler led the Nazi Party, not the Communist Party."
-                            Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

@@ -27,14 +27,12 @@ class ActivityQuiz1 : AppCompatActivity() {
             insets
         }
 
-        // Link views
         radioGroup = findViewById(R.id.RadioGroupQuestion1)
         radioTrue = findViewById(R.id.radioButtonTrueQuiz1)
         radioFalse = findViewById(R.id.radioButtonFalseQuiz1)
         buttonNext = findViewById(R.id.buttonNext)
         questionFeedback = findViewById(R.id.TextViewQuizTime)
 
-        // Set Next button listener
         buttonNext.setOnClickListener {
             val selectedId = radioGroup.checkedRadioButtonId
 

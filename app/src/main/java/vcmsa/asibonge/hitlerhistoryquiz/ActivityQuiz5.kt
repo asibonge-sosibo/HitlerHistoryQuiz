@@ -30,13 +30,13 @@ class ActivityQuiz5 : AppCompatActivity() {
                 super.onCreate(savedInstanceState)
                 setContentView(R.layout.activity_quiz5)
 
-                // Connect UI components
+
                 radioGroup = findViewById(R.id.RadioGroupQuestion5)
                 radioTrue = findViewById(R.id.radioButtonTrueQuiz5)
                 radioFalse = findViewById(R.id.radioButtonFalseQuiz5)
                 buttonNext = findViewById(R.id.buttonNext)
 
-                // Handle Next button click
+
                 buttonNext.setOnClickListener {
                     val selectedId = radioGroup.checkedRadioButtonId
 
@@ -51,7 +51,7 @@ class ActivityQuiz5 : AppCompatActivity() {
                             Toast.makeText(this, "Incorrect. Germany surrendered in 1945 after Hitler's death.", Toast.LENGTH_LONG).show()
                         }
 
-                        // Example: Proceed to a result screen or end the quiz
+
                         val intent = Intent(this, QuizResultActivity::class.java)
                         intent.putExtra("isCorrect", isCorrect)
                         startActivity(intent)

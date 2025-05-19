@@ -1,6 +1,7 @@
 package vcmsa.asibonge.hitlerhistoryquiz
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -38,13 +39,11 @@ class ActivityQuiz3 : AppCompatActivity() {
                     insets
                 }
 
-
                 radioGroup = findViewById(R.id.RadioGroupQuestion3)
                 radioTrue = findViewById(R.id.radioButtonTrueQuiz3)
                 radioFalse = findViewById(R.id.radioButtonFalseQuiz3)
                 buttonNext = findViewById(R.id.buttonNext)
                 feedbackText = findViewById(R.id.textViewAnswerCorrectlyQuestion3)
-
 
                 buttonNext.setOnClickListener {
                     val selectedId = radioGroup.checkedRadioButtonId
@@ -57,9 +56,9 @@ class ActivityQuiz3 : AppCompatActivity() {
                         if (isCorrect) {
                             feedbackText.text = "Correct!"
                             Toast.makeText(this, "Correct answer!", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this, ActivityQuiz4::class.java)
+                            startActivity(intent)
                         } else {
-                            feedbackText.text = "Incorrect! Correct answer: Adolf Hitler became Chancellor of Germany in 1933."
-                            Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import android.view.Gravity
 
 class ActivityQuiz2 : AppCompatActivity() {
 
@@ -43,14 +44,18 @@ class ActivityQuiz2 : AppCompatActivity() {
 
                 if (isCorrect) {
                     feedbackText.text = "Correct!"
-                    Toast.makeText(this, "Correct answer!", Toast.LENGTH_SHORT).show()
+                    val toast = Toast.makeText(this, "Correct answer!", Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.CENTER, 0, 0)
+                    toast.show()
 
-                    // Navigate to result screen
-                    val intent = Intent(this, QuizResultActivity::class.java)
-                    startActivity(intent)
                 } else {
-                    feedbackText.text = "Incorrect!\nCorrect answer: Hitler wrote Mein Kampf while he was in prison."
-                    Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT).show()
+                    val toast = Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT)
+                    toast.setGravity(Gravity.CENTER, 0, 0)
+                    toast.show()
+
+                    val intent = Intent(this, ActivityQuiz3::class.java)
+                    intent.putExtra("isCorrect", false)
+                    startActivity(intent)
                 }
             }
         }
