@@ -1,5 +1,6 @@
 package vcmsa.asibonge.hitlerhistoryquiz
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -25,6 +26,7 @@ class ActivityQuiz1 : AppCompatActivity() {
             private lateinit var buttonNext: Button
             private lateinit var questionFeedback: TextView
 
+            @SuppressLint("SetTextI18n", "CutPasteId")
             override fun onCreate(savedInstanceState: Bundle?) {
                 super.onCreate(savedInstanceState)
                 enableEdgeToEdge()
@@ -61,6 +63,9 @@ class ActivityQuiz1 : AppCompatActivity() {
                             questionFeedback.text = "Incorrect!"
                             Toast.makeText(this, "Wrong answer. Try again!", Toast.LENGTH_SHORT)
                                 .show()
+
+                                    val nextButton: Button = findViewById(R.id.buttonNext)
+
                         }
                     }
                 }
