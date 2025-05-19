@@ -1,0 +1,68 @@
+package vcmsa.asibonge.hitlerhistoryquiz
+
+import android.annotation.SuppressLint
+import android.os.Bundle
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.enableEdgeToEdge
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+
+class ActivityQuiz2 : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_quiz2)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        class ActivityQuiz2 : AppCompatActivity() {
+
+            private lateinit var radioGroup: RadioGroup
+            private lateinit var radioTrue: RadioButton
+            private lateinit var radioFalse: RadioButton
+            private lateinit var buttonNext: Button
+            private lateinit var feedbackText: TextView
+
+            @SuppressLint("SetTextI18n")
+            override fun onCreate(savedInstanceState: Bundle?) {
+                super.onCreate(savedInstanceState)
+                enableEdgeToEdge()
+                setContentView(R.layout.activity_quiz2)
+
+                ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+                    val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                    v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+                    insets
+                }
+                radioGroup = findViewById(R.id.RadioGroupQuestion2)
+                radioTrue = findViewById(R.id.radioButtonTrueQuestion2)
+                radioFalse = findViewById(R.id.radioButtonFalseQuestion2)
+                buttonNext = findViewById(R.id.buttonNext)
+                feedbackText = findViewById(R.id.textViewAnswerCorrectly)
+
+                buttonNext.setOnClickListener {
+                    val selectedId = radioGroup.checkedRadioButtonId
+
+                    if (selectedId == -1) {
+                        Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val isCorrect = selectedId == R.id.radioButtonTrueQuestion2
+
+                        if (isCorrect) {
+                            feedbackText.text = "Correct!"
+                            Toast.makeText(this, "Correct answer!", Toast.LENGTH_SHORT).show()
+                        } else {
+                            feedbackText.text = "Incorrect!\nCorrect answer: Hitler wrote Mein Kampf while he was in prison."
+                            Toast.makeText(this, "Wrong answer!", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
