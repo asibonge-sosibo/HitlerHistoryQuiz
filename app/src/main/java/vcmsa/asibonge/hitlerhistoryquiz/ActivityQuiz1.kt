@@ -1,11 +1,15 @@
 package vcmsa.asibonge.hitlerhistoryquiz
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
+@Suppress("UNREACHABLE_CODE")
 class ActivityQuiz1 : AppCompatActivity() {
 
     private var counter = 0
@@ -85,6 +89,9 @@ class ActivityQuiz1 : AppCompatActivity() {
             }
         }
         return score
+        val intent = Intent(this, QuizResultActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     }
