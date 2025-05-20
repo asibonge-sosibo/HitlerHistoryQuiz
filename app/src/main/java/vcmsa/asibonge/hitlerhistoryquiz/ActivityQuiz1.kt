@@ -1,5 +1,6 @@
 package vcmsa.asibonge.hitlerhistoryquiz
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
@@ -26,15 +27,65 @@ class ActivityQuiz1 : AppCompatActivity() {
     private val correctAnswers = arrayOf("False", "True", "True", "False", "False")
     private val userAnswer = arrayOfNulls<String>(5)
 
-    override fun onCreat(savedInstanceState:Bundle){
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_quiz1)
+        setContentView(R.layout.activity_quiz1)
 
         val Question = findViewById<TextView>(R.id.Question)
-        val buttonNext = findViewById<RadioGroup>(R.id.radioButtonTrue)
+        val radioGroupQuestion = findViewById<RadioGroup>(R.id.RadioGroupQuestion)
         val buttonNext = findViewById<Button>(R.id.buttonNext)
 
-        val displayQuestion = Unit
-        displayQuestion
+        displayQuestion(Question, radioGroupQuestion)
+
+        buttonNext.setOnClickListener {
+            val selectedId = radioGroupQuestion.checkedRadioButtonId
+            if (selectedId != -1) {
+                val selectedRadioButton = findViewById<RadioButton>(selectedId)
+                userAnswer[counter] = selectedRadioButton.text.toString()
+                counter++
+
+                if (counter < HitlerHistoryQuiz.size) {
+                    displayQuestion(Question, radioGroupQuestion)
+                } else {
+                    val score = calculateScore()
+                    val feedback = when {
+                        score == 5 -> "Great work!"
+                        score >= 3 -> "Not bad, do better next time!"
+                        else -> "Try again!"
+                    }
+
+                    val intent = Intent(this, activityResultRegistry::class.java)
+                    intent.putExtra("SCORE", score)
+                    intent.putExtra("FEEDBACK", feedback)
+                    startActivity(intent)
+                    finish()
+                }
+            } else {
+                Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
-}
+
+    private fun displayQuestion(tvQuestion: TextView, rbtngAnswers: RadioGroup) {
+        tvQuestion.text = HitlerHistoryQuiz[counter]
+        rbtngAnswers.clearCheck()
+
+        for (i in 0 until rbtngAnswers.childCount) {
+            val radioButton = rbtngAnswers.getChildAt(i) as RadioButton
+            radioButton.text = answerChoices[counter][i]
+        }
+    }
+
+    private fun calculateScore(): Int {
+        var score = 0
+        for (i in correctAnswers.indices) {
+            if (userAnswer[i] == correctAnswers[i]) {
+                score++
+            }
+        }
+        return score
+    }
+
+    }
+

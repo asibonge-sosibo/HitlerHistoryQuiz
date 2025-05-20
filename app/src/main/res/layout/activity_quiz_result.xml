@@ -53,13 +53,25 @@
             android:id="@+id/textViewShowResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show Result"
+            android:text="Score:0/0"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ShowResults"
-            app:layout_constraintVertical_bias="0.829" />
+            app:layout_constraintVertical_bias="0.203" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Percentage: 0%"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewShowResult" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

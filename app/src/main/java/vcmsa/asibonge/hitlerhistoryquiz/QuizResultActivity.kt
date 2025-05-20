@@ -12,9 +12,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class QuizResultActivity : AppCompatActivity() {
 
-    private lateinit var textViewShowResult: TextView
-    private lateinit var buttonReturn: Button
-
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,18 +24,24 @@ class QuizResultActivity : AppCompatActivity() {
             insets
         }
 
-        textViewShowResult = findViewById(R.id.textViewShowResult)
-        buttonReturn = findViewById(R.id.button)
+        val textViewScore = findViewById<TextView>(R.id.textViewShowResult)
+        val textViewPercentage = findViewById<TextView>(R.id.textView)
+        val buttonFinish = findViewById<Button>(R.id.button)
 
-        val isCorrect = intent.getBooleanExtra("isCorrect", false)
+        // Get score and feedback from intent
+        val score = intent.getIntExtra("SCORE", 0)
+        val feedback = intent.getStringExtra("FEEDBACK")
 
-        if (isCorrect) {
-            textViewShowResult.text = "🎉 Congratulations! You answered correctly."
-        } else {
-            textViewShowResult.text = "❌ Oops! That's not the right answer."
-        }
+        // Calculate percentage
+        val percentage = (score / 5.0) * 100
 
-        buttonReturn.setOnClickListener {
+        // Show results
+        textViewScore.text = "Score: $score / 5"
+        textViewPercentage.text = "Percentage: ${percentage.toInt()}%\n$feedback"
+
+        // Finish or restart
+        buttonFinish.text = "Restart"
+        buttonFinish.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
