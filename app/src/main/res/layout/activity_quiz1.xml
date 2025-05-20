@@ -22,10 +22,10 @@
             android:src="@drawable/quiz_app_picture__1_"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.754"
+            app:layout_constraintHorizontal_bias="0.749"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.533" />
+            app:layout_constraintVertical_bias="0.525" />
 
         <Button
             android:id="@+id/buttonNext"
@@ -51,41 +51,38 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textViewQuestion1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="30dp"
-            android:text="Hitler was born in Germany."
-            android:textAlignment="center"
-            android:textSize="34sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/TextViewQuizTime" />
-
         <RadioGroup
-            android:id="@+id/RadioGroupQuestion1"
-            android:layout_width="405dp"
-            android:layout_height="135dp"
-            android:layout_marginTop="50dp"
+            android:id="@+id/RadioGroupQuestion"
+            android:layout_width="399dp"
+            android:layout_height="101dp"
+            android:layout_marginBottom="180dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonNext"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewQuestion1">
+            app:layout_constraintStart_toStartOf="parent">
 
             <RadioButton
-                android:id="@+id/radioButtonTrueQuiz1"
+                android:id="@+id/radioButtonTrue"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="True" />
 
             <RadioButton
-                android:id="@+id/radioButtonFalseQuiz1"
+                android:id="@+id/radioButtonFalse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="False" />
         </RadioGroup>
+
+        <TextView
+            android:id="@+id/Question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/TextViewQuizTime" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

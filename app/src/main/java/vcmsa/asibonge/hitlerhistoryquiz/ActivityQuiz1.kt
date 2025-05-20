@@ -4,51 +4,37 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.activity.enableEdgeToEdge
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class ActivityQuiz1 : AppCompatActivity() {
 
-    private lateinit var radioGroup: RadioGroup
-    private lateinit var radioTrue: RadioButton
-    private lateinit var radioFalse: RadioButton
-    private lateinit var buttonNext: Button
-    private lateinit var questionFeedback: TextView
+    private var counter = 0
+    private val HitlerHistoryQuiz = arrayOf(
+        "Hitler was born in Germany.",
+        "Hitler wrote a book called Mein Kampf while in prison.",
+        "Adolf Hitler became Chancellor of Germany in 1933.",
+        "Hitler led the Communist Party in Germany.",
+        "World War II ended with Hitler’s surrender in 1945. "
+    )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    private val answerChoices = arrayOf(
+        arrayOf("True", "False"),
+        arrayOf("True", "False"),
+        arrayOf("True", "False"),
+        arrayOf("True", "False"),
+        arrayOf("True", "False")
+    )
+    private val correctAnswers = arrayOf("False", "True", "True", "False", "False")
+    private val userAnswer = arrayOfNulls<String>(5)
+
+    override fun onCreat(savedInstanceState:Bundle){
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_quiz1)
+    setContentView(R.layout.activity_quiz1)
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        val Question = findViewById<TextView>(R.id.Question)
+        val buttonNext = findViewById<RadioGroup>(R.id.radioButtonTrue)
+        val buttonNext = findViewById<Button>(R.id.buttonNext)
 
-        radioGroup = findViewById(R.id.RadioGroupQuestion1)
-        radioTrue = findViewById(R.id.radioButtonTrueQuiz1)
-        radioFalse = findViewById(R.id.radioButtonFalseQuiz1)
-        buttonNext = findViewById(R.id.buttonNext)
-        questionFeedback = findViewById(R.id.TextViewQuizTime)
-
-        buttonNext.setOnClickListener {
-            val selectedId = radioGroup.checkedRadioButtonId
-
-            if (selectedId == -1) {
-                Toast.makeText(this, "Please select an answer", Toast.LENGTH_SHORT).show()
-            } else {
-                val isCorrect = selectedId == R.id.radioButtonFalseQuiz1
-                if (isCorrect) {
-                    questionFeedback.text = "Correct!"
-                    Toast.makeText(this, "Correct answer!", Toast.LENGTH_SHORT).show()
-
-                    val intent = Intent(this, ActivityQuiz2::class.java)
-                    startActivity(intent)
-                } else {
-                }
-            }
-        }
+        val displayQuestion = Unit
+        displayQuestion
     }
 }
