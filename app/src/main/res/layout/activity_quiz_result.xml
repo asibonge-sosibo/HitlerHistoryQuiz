@@ -8,8 +8,8 @@
     tools:context=".QuizResultActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,8 +17,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="800dp"
-            android:layout_height="1100dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
             android:src="@drawable/quiz_app_picture__1_"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

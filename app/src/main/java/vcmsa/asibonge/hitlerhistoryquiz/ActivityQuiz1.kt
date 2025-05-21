@@ -89,7 +89,7 @@ class ActivityQuiz1 : AppCompatActivity() {
             }
         }
         return score
-        val intent = Intent(this, QuizResultActivity::class.java)
+        val intent = Intent(this, ActivityQuiz1::class.java)
         startActivity(intent)
         finish()
     }

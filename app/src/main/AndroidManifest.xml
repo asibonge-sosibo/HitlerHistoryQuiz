@@ -16,18 +16,6 @@
             android:name=".QuizResultActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityQuiz5"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityQuiz4"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityQuiz3"
-            android:exported="false" />
-        <activity
-            android:name=".ActivityQuiz2"
-            android:exported="false" />
-        <activity
             android:name=".ActivityQuiz1"
             android:exported="false" />
         <activity
