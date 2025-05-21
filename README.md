@@ -99,13 +99,15 @@ View your score and personalized feedback on the Score Screen.
 Review the flashcards with the correct answers or exit the app.
 
 GitHub Repository and Video
-Repository: [Insert your repository link here]
+Repository: [[Insert your repository link here](https://github.com/asibonge-sosibo/HitlerHistoryQuiz)]
 
-YouTube Video: [Insert your video link here]
+YouTube Video: [[Insert your video link here]](https://youtube.com/shorts/Th2mfQO6lJw)
 
 ![Screenshot 2025-05-21 120233](https://github.com/user-attachments/assets/ce04bd66-9173-4dbb-a3ce-edb8544c0121)
 ![Screenshot 2025-05-21 120216](https://github.com/user-attachments/assets/0098fc7a-09c6-4634-98e9-240187d9f1f2)
 ![Screenshot 2025-05-21 120159](https://github.com/user-attachments/assets/c2a6dee4-794a-4bf1-8d15-012fbda271a7)
 Liehanels (no date) Liehanels/QuizzApp: A Quizz app to test your science skills!, GitHub. Available at: https://github.com/liehanels/QuizzApp (Accessed: 21 May 2025).
+
+This is the link to the code on github: https://github.com/asibonge-sosibo/HitlerHistoryQuiz
 
 
